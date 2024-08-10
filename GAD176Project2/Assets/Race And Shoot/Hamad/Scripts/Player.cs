@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         }
 
         MovePlayer();
+        TurnPlayer();
         Shoot();
 
 
@@ -42,6 +43,25 @@ public class Player : MonoBehaviour
     void MovePlayer()
     {
 
+        //float xSpeed = Input.GetAxis("Horizontal");
+        float ySpeed = Input.GetAxis("Vertical");
+
+        //_rb2D.velocity = new Vector2(_rb2D.velocity.x, ySpeed * speed * Time.deltaTime);
+        _rb2D.AddForce(this.transform.up * ySpeed * speed * Time.deltaTime);
+
+        
+
+    }
+
+    void TurnPlayer()
+    {
+
+        float xSpeed = Input.GetAxis("Horizontal");
+        //float ySpeed = Input.GetAxis("Vertical");
+
+        _rb2D.AddTorque(xSpeed * turnSpeed * Time.deltaTime);
+
+
 
     }
 
@@ -50,6 +70,7 @@ public class Player : MonoBehaviour
 
 
     }
+
 
     void DestroyPlayer()
     {
