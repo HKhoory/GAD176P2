@@ -68,6 +68,10 @@ public class Player : MonoBehaviour
     void Shoot()
     {
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bullets[0]);
+        }
 
     }
 
