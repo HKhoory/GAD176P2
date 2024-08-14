@@ -2,67 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
 
-public class BoostPlayerSpeed : MonoBehaviour
+namespace Aisha.GAD176.Terrain
 {
-    private bool boost;
-    private float boostTimer;
-    [SerializeField] float boostTimerLimit;
-    [SerializeField] string otherColliderTag;
-    Player player;
-    BoxCollider2D box;
+    [RequireComponent(typeof(BoxCollider2D))]
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public class BoostPlayerSpeed : MonoBehaviour
     {
-        if (other.tag == otherColliderTag)
+        #region Variables
+        private bool boost;
+        private float boostTimer;
+        [SerializeField] float boostTimerLimit;
+        [SerializeField] string otherColliderTag;
+        Player player;
+        BoxCollider2D box;
+        #endregion
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("player entered");
-            boost = true;
-
-            player = FindObjectOfType<Player>();
-
-            if (player != null)
+            if (other.tag == otherColliderTag)
             {
-                 //player.speed *= 2 ;
-                 //player.turnSpeed *= 2;
+                Debug.Log("player entered");
+                boost = true;
 
-                Debug.Log("boost activated");
+                player = other.GetComponent<Player>();
+
+                if (player != null)
+                {
+                    player.speed *= 2;
+                    player.turnSpeed *= 2;
+
+                    Debug.Log("boost activated");
+                }
             }
         }
-    }
 
-    void Start()
-    {
-        boost = false;
-
-        box = GetComponent<BoxCollider2D>();
-        box.isTrigger = true;
-    }
-
-    private void Update()
-    {
-        BoostTime();
-    }
-
-    void BoostTime()
-    {
-        if (boost)
+     
+        void Start()
         {
-            boostTimer += Time.deltaTime;
+            boost = false;
 
-            if(boostTimer >= boostTimerLimit)
-            {
-               //player.speed /= 2;
-               //player.turnSpeed /= 2;
-                boostTimer = 0;
-                boost = false;
-                Debug.Log("boost deactivated");
-            }
-
+            box = GetComponent<BoxCollider2D>();
+            box.isTrigger = true;
         }
-    }
 
-    
-    
+        void Update()
+        {
+            BoostTime();
+        }
+        
+
+        void BoostTime()
+        {
+            if (boost)
+            {
+                boostTimer += Time.deltaTime;
+
+                if (boostTimer >= boostTimerLimit)
+                {
+                    player.speed /= 2;
+                    player.turnSpeed /= 2;
+                    boostTimer = 0;
+                    boost = false;
+                    Debug.Log("boost deactivated");
+                }
+
+            }
+        }
+       
+
+
+
+    }
 }
