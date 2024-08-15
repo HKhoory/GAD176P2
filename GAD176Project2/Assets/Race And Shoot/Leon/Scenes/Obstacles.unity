@@ -156,7 +156,7 @@ MonoBehaviour:
   Satellite: {fileID: 0}
   Asteroids: {fileID: 0}
   startingSpawnTimer: 0
-  timeToSpawnAnItem: 5
+  timeToSpawnAnItem: 20
 --- !u!4 &385941857
 Transform:
   m_ObjectHideFlags: 0
