@@ -7,6 +7,9 @@ public class Bullet : MonoBehaviour
 
     //get the scriptable object
 
+
+    
+
     [SerializeField] public BulletScriptable test;
     [SerializeField] private Rigidbody2D _rb2D;
     float speed;
