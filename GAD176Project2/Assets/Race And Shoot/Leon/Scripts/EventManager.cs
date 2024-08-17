@@ -1,10 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
+    [SerializeField] GameObject player; 
+
+    private Vector2 ObstacleSpawnPoint;
+
     public Obstacles obstacles;
+
+    [SerializeField] ObstaclePrefabs AsteroidPrefabs;
+    [SerializeField] ObstaclePrefabs SatellitePrefabs;
+    [SerializeField] ObstaclePrefabs BlackHolePrefabs;
+
+    [SerializeField] private float sphereCastRadius = 5.0f;
+    private Ray ray;
+    private RaycastHit Hit;
 
     void OnEnable()
     {
@@ -20,27 +34,42 @@ public class EventManager : MonoBehaviour
 
 
    void ObstacleSpawner()
-    {
-        Debug.Log("It works");
-        /* obstacles.ItemSpawner = UnityEngine.Random.Range(0, 4);
+   {
+        obstacles.ItemSpawner = UnityEngine.Random.Range(0, 4);
         obstacles.startingSpawnTimer = 0f;
         if (obstacles.ItemSpawner == 1)
         {
-            Instantiate(BlackHole, Vector2.zero, Quaternion.identity);
-            //SpawnTime += Time.deltaTime;
-            Destroy(BlackHole, 10f);
+            Blackhole();
         }
         if (obstacles.ItemSpawner == 2)
         {
-            Instantiate(Asteroids, Vector2.zero, Quaternion.identity);
-            //SpawnTime += Time.deltaTime;
-            Destroy(Asteroids, 10f);
+            Asteroids();
         }
         if (obstacles.ItemSpawner == 3)
         {
-            Instantiate(Satellite, Vector2.zero, Quaternion.identity);
-            //SpawnTime += Time.deltaTime;
-            Destroy(Satellite, 10f);
-        }*/
+            Satellite();
+        }
+    }
+
+    public void Blackhole()
+    {
+        Instantiate(BlackHolePrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
+        if (Physics.SphereCast(ray,sphereCastRadius, out Hit))
+        {
+
+        }
+        Destroy(BlackHolePrefabs.GameObject(), 10f);
+    }
+    
+    public void Asteroids()
+    {
+        Instantiate(AsteroidPrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
+        Destroy(AsteroidPrefabs.GameObject(), 10f);
+    }
+
+    public void Satellite()
+    {
+        Instantiate(SatellitePrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
+        Destroy(SatellitePrefabs.GameObject(), 10f);
     }
 }
