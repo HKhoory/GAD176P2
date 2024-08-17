@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     [SerializeField] private int health;
-    [SerializeField] private float turnSpeed;
+    [SerializeField] public float turnSpeed;
     [SerializeField] private Rigidbody2D _rb2D;
     [SerializeField] private GameObject[] bullets;
 
@@ -68,6 +68,12 @@ public class Player : MonoBehaviour
     void Shoot()
     {
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bullets[0]);
+            //call unity event to shoot bullet
+            //or just do that in turret smh
+        }
 
     }
 

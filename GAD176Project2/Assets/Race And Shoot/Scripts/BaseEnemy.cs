@@ -10,11 +10,6 @@ public class BaseEnemy : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     protected virtual void Move()
     {
@@ -26,9 +21,9 @@ public class BaseEnemy : MonoBehaviour
         Debug.Log("Enemy is shooting");
     }
 
-    protected virtual void Destroy()
+    protected virtual void DestroyEnemy()
     {
-        //destroy the enemy gameobject
+        Destroy(gameObject);
     }
 
 }
