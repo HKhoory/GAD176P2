@@ -6,37 +6,30 @@ using UnityEngine;
 namespace Aisha.GAD176.Terrain
 {
     
-    public class BoostPlayerSpeed : BaseTerrainEffects
+    public class BoostSpeedTerrain : BaseTerrainEffects
     {
-        #region Variables
-        private bool boost;
-       
-        [SerializeField] float boostDuration;
-        [SerializeField] float boostAmount;
-        #endregion
-
-
+        public BoostSO boostSO;
 
         protected override void AddEffect()
         {
             base.AddEffect();
             if(targetObject != null)
             {
-                targetObject.velocity *= boostAmount;
+                targetObject.velocity *= boostSO.boostAmount;
                 StartCoroutine(Boost());
                 Debug.Log("Boost Activated");
+                Debug.Log(boostSO.boostAmount);
             }
            
         }
 
-     
         private IEnumerator Boost()
         {
-            yield return new WaitForSeconds(boostDuration);
+            yield return new WaitForSeconds(boostSO.boostDuration);
 
             if(targetObject != null)
             {
-                targetObject.velocity /= boostAmount;
+                targetObject.velocity /= boostSO.boostAmount;
                 Debug.Log("Boost Deactivated");
             }
             

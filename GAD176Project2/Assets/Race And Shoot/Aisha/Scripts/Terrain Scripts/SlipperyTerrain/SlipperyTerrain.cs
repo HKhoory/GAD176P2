@@ -5,16 +5,9 @@ using UnityEngine;
 namespace Aisha.GAD176.Terrain
 {
     
-    public class RotatePlayer : BaseTerrainEffects
+    public class SlipperyTerrain : BaseTerrainEffects
     {
-        #region Variables 
-        
-        [SerializeField] float rotationDuration;
-        [SerializeField] float rotationSpeed;
-
-        #endregion
-
-
+        public SlipSO slipSO;
 
         protected override void AddEffect()
         {
@@ -26,15 +19,14 @@ namespace Aisha.GAD176.Terrain
            
         }
 
-
         IEnumerator TriggerRotate()
         {
             Debug.Log("Timer Started");
 
             float time = 0f;
-            while (time < rotationDuration)
+            while (time < slipSO.rotationDuration)
             {
-                targetObject.transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.deltaTime);
+                targetObject.transform.Rotate(new Vector3(0, 0, slipSO.rotationSpeed) * Time.deltaTime);
                 time += Time.deltaTime;
                 yield return null;
             }

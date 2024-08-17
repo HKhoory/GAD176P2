@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Aisha.GAD176.Terrain
 {
@@ -11,6 +12,11 @@ namespace Aisha.GAD176.Terrain
         [SerializeField] protected string targetTag;
         protected Rigidbody2D targetObject;
         protected BoxCollider2D box;
+        
+
+        public UnityEvent EffectAdded = new UnityEvent();
+        public UnityEvent EffectRemoved = new UnityEvent();
+
 
         protected void Start()
         {
@@ -21,12 +27,14 @@ namespace Aisha.GAD176.Terrain
 
         protected virtual void AddEffect()
         {
+            EffectAdded?.Invoke();
             //Add terrain effect
         }
 
         protected virtual void RemoveEffect()
         {
-            //Remove terrain effct
+            EffectRemoved?.Invoke();
+            //Remove terrain effect
         }
 
         protected void OnTriggerEnter2D(Collider2D other)

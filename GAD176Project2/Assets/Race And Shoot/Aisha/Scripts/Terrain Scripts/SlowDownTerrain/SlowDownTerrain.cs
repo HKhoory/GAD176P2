@@ -5,13 +5,9 @@ using UnityEngine;
 
 namespace Aisha.GAD176.Terrain
 {
-    public class SlowPlayerDown : BaseTerrainEffects
+    public class SlowDownTerrain: BaseTerrainEffects
     {
-        #region Variables
-        
-        [SerializeField] float speedReduction;
-
-        #endregion
+        public SlowDownSO slowdownSO;
 
         protected override void AddEffect()
         {
@@ -19,7 +15,7 @@ namespace Aisha.GAD176.Terrain
             if(targetObject != null)
             {
                 //Reduce speed
-                targetObject.velocity *= 1 / speedReduction;
+                targetObject.velocity *= 1 / slowdownSO.speedReduction;
                 Debug.Log("Speed Reduced");
             }
         }
@@ -30,7 +26,7 @@ namespace Aisha.GAD176.Terrain
             if (targetObject != null)
             {
                 //Revert speed back to previous
-                targetObject.velocity *= speedReduction;
+                targetObject.velocity *= slowdownSO.speedReduction;
                 Debug.Log("Speed Reverted");
             }
         }
