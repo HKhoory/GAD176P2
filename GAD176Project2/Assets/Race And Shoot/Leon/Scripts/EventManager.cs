@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
+    public Player playerscript;
+
     [SerializeField] GameObject player; 
 
     private Vector2 ObstacleSpawnPoint;
@@ -54,17 +56,25 @@ public class EventManager : MonoBehaviour
     public void Blackhole()
     {
         Instantiate(BlackHolePrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
+        Destroy(BlackHolePrefabs.GameObject(), 10f);
+
         if (Physics.SphereCast(ray,sphereCastRadius, out Hit))
         {
-
+            Player.health--;
+            if (Player.health <= 0)
+            {
+                Destroy(player);
+            }
         }
-        Destroy(BlackHolePrefabs.GameObject(), 10f);
+        
     }
     
     public void Asteroids()
     {
         Instantiate(AsteroidPrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
         Destroy(AsteroidPrefabs.GameObject(), 10f);
+
+        
     }
 
     public void Satellite()
