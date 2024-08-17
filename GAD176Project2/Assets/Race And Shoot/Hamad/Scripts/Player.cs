@@ -71,6 +71,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bullets[0]);
+            //call unity event to shoot bullet
+            //or just do that in turret smh
         }
 
     }
