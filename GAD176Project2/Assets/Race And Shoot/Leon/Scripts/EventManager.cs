@@ -61,10 +61,6 @@ public class EventManager : MonoBehaviour
         if (Physics.SphereCast(ray,sphereCastRadius, out Hit))
         {
             Player.health--;
-            if (Player.health <= 0)
-            {
-                Destroy(player);
-            }
         }
         
     }
