@@ -47,7 +47,7 @@ public class ObstacleManager : MonoBehaviour
     }
 
 
-   void ObstacleSpawner()
+   public void ObstacleSpawner()
    {
         //Random number generator to choose which obstacle spawns
         obstacles.ItemSpawner = UnityEngine.Random.Range(0, 4);
