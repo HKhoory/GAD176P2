@@ -6,5 +6,5 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Prefab")] 
 public class ObstaclePrefabs : ScriptableObject
 {
-    public GameObject ObstacleHolder;
+    [SerializeField] GameObject ObstacleHolder;
 }

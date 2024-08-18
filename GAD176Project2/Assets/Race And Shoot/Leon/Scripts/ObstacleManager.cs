@@ -66,7 +66,7 @@ public class ObstacleManager : MonoBehaviour
         }
     }
 
-    public void Blackhole()
+    void Blackhole()
     {
         //Quad and meshcollider to check the size of the screen, which allows us to find a vector2 to spawn the blackhole on the screen
         meshCollider = quad.GetComponent<MeshCollider>();
@@ -81,7 +81,7 @@ public class ObstacleManager : MonoBehaviour
         Destroy(BlackHolePrefabs.GameObject(), 3f);
     }
 
-    public void Asteroids()
+    void Asteroids()
     {
         //Quad and meshcollider to check the size of the screen, which allows us to find a vector2 to spawn the blackhole on the screen
         meshCollider = quad.GetComponent<MeshCollider>();
@@ -95,7 +95,7 @@ public class ObstacleManager : MonoBehaviour
         Destroy(AsteroidPrefabs.GameObject(), 10f);
     }
 
-    public void Satellite()
+    void Satellite()
     {
         //Quad and meshcollider to check the size of the screen, which allows us to find a vector2 to spawn the blackhole on the screen
         meshCollider = quad.GetComponent<MeshCollider>();
