@@ -19,11 +19,6 @@ public class Blackhole : MonoBehaviour
         {
             
             Player.health = -1;
-            //If players health is less than or equal to 0 it dies
-            if (Player.health <= 0)
-            {
-                Destroy(player);
-            }
         }
     }
 }

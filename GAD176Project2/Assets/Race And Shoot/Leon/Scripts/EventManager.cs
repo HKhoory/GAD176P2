@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
     public Player playerscript;
 
-    [SerializeField] GameObject player; 
+    [SerializeField] GameObject player;
 
-    private Vector2 ObstacleSpawnPoint;
+    [SerializeField] GameObject quad;
+    float screenX , screenY;
+    Vector2 position;
+    MeshCollider mesh;
 
     public Obstacles obstacles;
 
@@ -18,10 +22,13 @@ public class EventManager : MonoBehaviour
     [SerializeField] ObstaclePrefabs SatellitePrefabs;
     [SerializeField] ObstaclePrefabs BlackHolePrefabs;
 
-    [SerializeField] private float sphereCastRadius = 5.0f;
-    private Ray ray;
-    private RaycastHit Hit;
-
+    List<ObstacleSpawnMsg> SpawnMsg = new List<ObstacleSpawnMsg>();
+    void Start()
+    {
+        SpawnMsg.Add(new BlackholeSpawnMsg());
+        SpawnMsg.Add(new AsteroidSpawnMsg());
+        SpawnMsg.Add(new SatelliteSpawnMsg());
+    }
     void OnEnable()
     {
         Obstacles.SpawnTimerEvent += ObstacleSpawner;
@@ -55,27 +62,32 @@ public class EventManager : MonoBehaviour
 
     public void Blackhole()
     {
-        Instantiate(BlackHolePrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
-        Destroy(BlackHolePrefabs.GameObject(), 10f);
+        screenX = Random.Range(mesh.bounds.min.x, mesh.bounds.max.x);
+        screenY = Random.Range(mesh.bounds.min.y, mesh.bounds.max.y);
+        position = new Vector2 (screenX, screenY);
 
-        if (Physics.SphereCast(ray,sphereCastRadius, out Hit))
-        {
-            Player.health--;
-        }
-        
+        Instantiate(BlackHolePrefabs.GameObject(), position, Quaternion.identity);
+        SpawnMsg[0].SpawnMessage();
+        Destroy(BlackHolePrefabs.GameObject(), 3f);        
     }
     
     public void Asteroids()
     {
-        Instantiate(AsteroidPrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
-        Destroy(AsteroidPrefabs.GameObject(), 10f);
+        screenY = Random.Range(mesh.bounds.min.y, mesh.bounds.max.y);
+        position = new Vector2(3.5f, screenY);
 
-        
+        Instantiate(AsteroidPrefabs.GameObject(), position, Quaternion.identity);
+        SpawnMsg[1].SpawnMessage();
+        Destroy(AsteroidPrefabs.GameObject(), 10f);        
     }
 
     public void Satellite()
     {
-        Instantiate(SatellitePrefabs.GameObject(), ObstacleSpawnPoint, Quaternion.identity);
+        screenY = Random.Range(mesh.bounds.min.y, mesh.bounds.max.y);
+        position = new Vector2(3.5f, screenY);
+
+        Instantiate(SatellitePrefabs.GameObject(), position, Quaternion.identity);
+        SpawnMsg[2].SpawnMessage();
         Destroy(SatellitePrefabs.GameObject(), 10f);
     }
 }
