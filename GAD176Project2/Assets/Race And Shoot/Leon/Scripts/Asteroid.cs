@@ -5,12 +5,12 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField] Rigidbody rb;
+    [SerializeField] Rigidbody2D rb;
     void Awake()
     {
         //Finding the player script and getting rigidbody component
         player = GameObject.FindGameObjectWithTag("Player");
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()

@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 451735475}
   - component: {fileID: 451735474}
   m_Layer: 0
-  m_Name: EventManager
+  m_Name: ObstacleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,14 +199,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94c23d62de393d4d8dacbcc14d25649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshCollider: {fileID: 0}
+  quad: {fileID: 1652133941}
   playerscript: {fileID: 720286921145680848}
   player: {fileID: 720286921145680847}
   obstacles: {fileID: 385941856}
   AsteroidPrefabs: {fileID: 11400000, guid: cb82facac6c196f43bf2d920dea02c74, type: 2}
   SatellitePrefabs: {fileID: 11400000, guid: a9dedf1b7b404f64486eab3107f07931, type: 2}
   BlackHolePrefabs: {fileID: 11400000, guid: dfa2750d05e04884aa6a7ed5ab2d7001, type: 2}
-  sphereCastRadius: 5
+  blackhole: {fileID: 5520454969121428692, guid: 41e2320de3ed46a47a4b134348b40100, type: 3}
+  asteroid: {fileID: 6384231204925195014, guid: 5a4f2ca6896ddd740ae20b49e80da62c, type: 3}
+  satellite: {fileID: 8772020116190397174, guid: 3beda509836c9d94ea47eb11c7a80d32, type: 3}
 --- !u!4 &451735475
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451735473}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.5656323, y: -0.7391857, z: 0.024445716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -390,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 1652133941}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0153, y: 0.0177, z: 0.019963697}
+  m_LocalPosition: {x: -0.04, y: -0.01, z: -38.3}
   m_LocalScale: {x: 17.74157, y: 9.966676, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
