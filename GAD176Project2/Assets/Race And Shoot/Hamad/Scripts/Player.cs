@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] public float speed;
-    [SerializeField] private int health;
+    [SerializeField] static public int health;
     [SerializeField] public float turnSpeed;
     [SerializeField] private Rigidbody2D _rb2D;
     [SerializeField] private GameObject[] bullets;
