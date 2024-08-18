@@ -11,7 +11,7 @@ public class BaseEnemy : MonoBehaviour
     }
 
 
-    protected virtual void Move()
+    public virtual void Move()
     {
         Debug.Log("Enemy is moving");
     }

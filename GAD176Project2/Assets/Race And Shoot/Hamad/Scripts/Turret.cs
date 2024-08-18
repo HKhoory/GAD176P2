@@ -34,8 +34,6 @@ public class Turret : MonoBehaviour
         {
             //shoot bullet
             var bullet = Instantiate(bullets[0], transform.position, transform.rotation);
-            Bullet bulletReference = bullet.GetComponent<Bullet>();
-            bullet.GetComponent<Rigidbody2D>().velocity = transform.right * bulletReference.GetSpeed();
             timer = cooldownTimer;
         }
     }

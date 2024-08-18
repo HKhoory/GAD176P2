@@ -31,6 +31,13 @@ public class Enemy1 : BaseEnemy
             return;
         }
 
+
+        Move();
+
+    }
+
+    public override void Move()
+    {
         var currentVelocity = _rb2D.velocity;
         Vector2 target;
         target = player.transform.position - transform.position;
@@ -39,9 +46,10 @@ public class Enemy1 : BaseEnemy
 
         if (_rb2D.velocity.magnitude >= maxVelocity)
         {
-            _rb2D.velocity = currentVelocity.normalized * maxVelocity; 
+            _rb2D.velocity = currentVelocity.normalized * maxVelocity;
         }
-        
-
     }
+
+
+
 }

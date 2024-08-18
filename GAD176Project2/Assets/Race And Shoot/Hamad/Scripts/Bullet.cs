@@ -29,9 +29,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
 
-        //maybe get the initial angle of the player
-
-        _rb2D.velocity = Vector2.right * speed * Time.deltaTime;
+        _rb2D.AddForce(transform.up * speed, ForceMode2D.Impulse);
 
         time -= Time.deltaTime;
 
@@ -41,10 +39,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public float GetSpeed()
-    {
-        return speed;
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
