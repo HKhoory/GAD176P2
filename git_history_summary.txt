@@ -1,0 +1,76 @@
+* 8b9e471 (HEAD -> main, origin/main, origin/HEAD) Changing of functions
+* 7f8f8e0 Added playagain() scene
+* 64d242c Comments for eventmanager
+* bdf6240 Added changes to scripts and scenes
+* ff1e3e0 Added changes to eventmanager that got wiped
+*   7598cc2 Merge branch 'main' of https://github.com/hkhoory/gad176p2
+|\  
+| * dcb672c Fixed Leon's eventmanager script and adding UI functionality
+* | e1426e5 Added changes to all obstacles
+|/  
+* a5b8bc4 fixed issue with not saving the public variable
+*   158de6b Merge branch 'leon'
+|\  
+| * 42a88f9 (origin/leon, leon) Added blackhole codes(partial) and changed health to static in Hamad's script
+| *   bfe4363 Merge branch 'main' into leon
+| |\  
+| * | fd44640 Added scripts for obstacles systems
+| * | bd7435d changed spawntime to 20
+| * | 1b02fa8 new script eventmanager and created unity event
+| * | 9cb1dc1 Added obstacles script
+* | | fab113b Preparing Playablescene and EnemySpawnSystem
+* | |   8868ca1 Merge branch 'main' of https://github.com/HKhoory/GAD176P2
+|\ \ \  
+| | |/  
+| |/|   
+| * | 38dcc17 Turret functionaly completed
+* | |   8ea9618 Merge branch 'Aisha'
+|\ \ \  
+| |/ /  
+|/| |   
+| * | 968e594 (origin/Aisha) Added Scriptable Objects, UI, And Prefabs
+| * | 19485de Altered RotatePlayer Script
+| * | ad80fd6 Altered BoostPlayerSpeed Script
+| * | 5217f6e Adjusting Terrain Scripts
+* | | b942163 Merge branch 'Aisha'
+|\| | 
+| * | 4bd459f Minor Changes and Organization
+| * | 1a072ee Added RotatePlayer Script
+* | |   00ce2a9 Merge branch 'main' of https://github.com/HKhoory/GAD176P2
+|\ \ \  
+| * | | 30f53ae Placed UI in PlayerTest
+* | | | 42e4c25 Merge branch 'main' of https://github.com/HKhoory/GAD176P2
+|\| | | 
+| * | | 6f8cc51 Added Text Mesh Pro in the project
+* | | | 87067b8 Merge branch 'main' of https://github.com/HKhoory/GAD176P2
+|\| | | 
+| * | | fed505f Created the scene to place all of our assets in
+| * | | 97732ea (origin/hamad, hamad) Made camera follow script
+| * | | c7f4bbd Creating bullet scriptable and bullet prefab
+| * | | af6ae1c Testing scriptable object and bullets
+| * | |   54c4112 Merge branch 'main' into hamad
+| |\ \ \  
+| | | |/  
+| | |/|   
+| * | | 342ae39 Added Enemy Type 1 behavior and prefab
+* | | |   589ed14 Merge branch 'Aisha'
+|\ \ \ \  
+| |_|/ /  
+|/| | /   
+| | |/    
+| |/|     
+| * | d5110f0 Added Boost Script
+| * | 38e37d1 SlowPlayerDown Script added
+| |/  
+* / 134e8c3 Added player movement and turning
+|/  
+* d2e06ce Fixing Player Prefab
+* f928674 Adding player prefab
+* 49477f0 Changed the name of Main file to Race And Shoot
+* fcbf575 Adding some changes to PlayerTest scene
+* 9906453 Building the playertest scene with player
+* 94975d4 (origin/develop, develop) Creating Base Enemy script
+* 96de640 Organizing prefab folders
+* b1fb3d2 Folder Structure
+* a251bd1 Added the Unity Project in the repo
+* 8860c4d Initial commit
