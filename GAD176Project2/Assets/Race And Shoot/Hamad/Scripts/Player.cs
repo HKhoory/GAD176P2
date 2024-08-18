@@ -6,11 +6,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
 
-    public UnityEvent test = new UnityEvent();
-
-    
-
-    [SerializeField] public float speed; //
+    [SerializeField] public float speed;
     [SerializeField] private int health;
     [SerializeField] public float turnSpeed;
     [SerializeField] private Rigidbody2D _rb2D;
