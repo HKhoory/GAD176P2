@@ -2,28 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemy : MonoBehaviour
+namespace GAD176.Hamad.Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BaseEnemy : MonoBehaviour
     {
-        
+        /// <summary>
+        /// Has the basic functions for an enemy
+        /// </summary>
+
+
+        public virtual void Move() //responsible for moving the enemy
+        {
+            Debug.Log("Enemy is moving");
+        }
+
+        protected virtual void Shoot() //responsible for making the enemy shoot
+        {
+            Debug.Log("Enemy is shooting");
+        }
+
+        protected virtual void DestroyEnemy() //responsible for destroying the enemy
+        {
+            Destroy(gameObject);
+        }
+
     }
-
-
-    public virtual void Move()
-    {
-        Debug.Log("Enemy is moving");
-    }
-
-    protected virtual void Shoot()
-    {
-        Debug.Log("Enemy is shooting");
-    }
-
-    protected virtual void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-
 }

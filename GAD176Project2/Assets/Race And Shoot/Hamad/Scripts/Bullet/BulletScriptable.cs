@@ -9,7 +9,6 @@ public class BulletScriptable : ScriptableObject
 {
 
     public float speed;
-    public float size;
     public float timer;
 
 

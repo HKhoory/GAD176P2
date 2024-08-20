@@ -5,22 +5,21 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    //get the scriptable object
-
-
+    /// <summary>
+    /// Basic mechanics for the bullet
+    /// Gets the values for the bullet scriptable object and sets those values to the bullets speed and lifetime
+    /// </summary>
     
 
-    [SerializeField] public BulletScriptable test;
+    [SerializeField] public BulletScriptable test; //bullet scriptable object
     [SerializeField] private Rigidbody2D _rb2D;
     float speed;
-    float size;
     float time;
 
     // Start is called before the first frame update
     void Start()
     {
         speed = test.speed;
-        size = test.size;
         time = test.timer;
         _rb2D.GetComponent<Rigidbody2D>();
     }
@@ -40,12 +39,4 @@ public class Bullet : MonoBehaviour
     }
 
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-    }
 }
